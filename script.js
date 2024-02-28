@@ -11,7 +11,7 @@ document.querySelectorAll("button").forEach(function (button) {
         this.style.backgroundColor = "";
     });
 });
-//onclick functions
+//button functions
 function newPassword() {
     let element = document.getElementsByClassName("insert-container")[0];
     element.style.display = "flex";
@@ -26,7 +26,7 @@ function abort() {
         input.value = "";
     });
 }
-//create new password (div)
+//create new password (new div)
 let insertedValues = document.querySelectorAll("input");
 
 function checkInputs() {
@@ -39,24 +39,47 @@ function checkInputs() {
     });
 
     if (inputsFilled) {
-        createDiv();
+        createPassword();
     } else {
         document.getElementById("inputAlert").style.display = "flex";
     }
 }
 
-function createDiv() {
-    var newDiv = document.createElement("div");
-    var newH1 = document.createElement("h1");
+function createPassword() {
+    let newPassword = document.createElement("div");
+    let newPasswordButtons = document.createElement("div");
 
-    newDiv.className = "password";
+    let IDname = document.createElement("h1");
+    let emailUsername = document.createElement("h2");
+    let password = document.createElement("h3");
+    let copyPasswordButton = document.createElement("button");
+    let copyEmailButton = document.createElement("button");
+    let deletePasswordButton = document.createElement("button");
 
-    document.getElementById("passwords-container").appendChild(newDiv);
-    document.getElementsByClassName("password").appendChild(newH1);
+
+    document.getElementById("passwords-container").appendChild(newPassword);//adds a div to its container
+    newPassword.appendChild(IDname);
+    newPassword.appendChild(emailUsername);
+    newPassword.appendChild(password);
+
+    newPassword.appendChild(newPasswordButtons);
+    newPasswordButtons.appendChild(copyPasswordButton);
+    newPasswordButtons.appendChild(copyEmailButton);
+    newPasswordButtons.appendChild(deletePasswordButton);
+
+    newPassword.className = "password";
+    copyPasswordButton.className = "password-buttons";
+    copyEmailButton.className = "password-buttons";
+    deletePasswordButton.className = "password-buttons";
+
+    IDname.textContent = document.getElementById("nameInput").value;
+    emailUsername.textContent = document.getElementById("emailInput").value;
+    password.textContent = document.getElementById("passwordInput").value;
 
     let element = document.getElementsByClassName("insert-container")[0];
 
     element.style.display = "none";
+    document.getElementById("inputAlert").style.display = "none";
 
     insertedValues.forEach(function (input) {
         input.value = "";

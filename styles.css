@@ -15,7 +15,6 @@ body {
     align-items: center;
     position: fixed;
     bottom: 0;
-    background-color: rgb(25, 24, 31);
     height: 20vh;
     width: 100vw;
 }
@@ -35,12 +34,36 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
     border: 2px solid #000;
     border-radius: 10px;
     background-color: rgb(47, 45, 65);
-    height: 150px;
-    width: 250px;
+    height: 210px;
+    min-width: 250px;
     margin: 10px;
+    padding: 10px;
+}
+
+.password h1 {
+    margin-bottom: 40px;
+}
+
+.password h2 {
+    color: #6a9933;
+}
+
+.password h3 {
+    color: #6a9933;
+}
+
+.password-buttons {
+    background-color: rgb(90, 90, 90);
+    border: 0;
+    border-radius: 100%;
+    height: 45px;
+    width: 45px;
+    margin: 30px 10px 0 10px;
+    box-shadow: 2px 2px #000;
 }
 
 .insert-container {

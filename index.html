@@ -15,19 +15,15 @@
     <div id="line"></div>
     <div class="insert-container">
         <h2>Insert new password</h2>
-        <input type="text" name="name" placeholder="Name" spellcheck="false">
-        <input type="text" name="email" placeholder="E-Mail" spellcheck="false">
-        <input type="text" name="password" placeholder="Password" spellcheck="false">
+        <input type="text" id="nameInput" placeholder="Password Name" spellcheck="false">
+        <input type="text" id="emailInput" placeholder="E-Mail/Username" spellcheck="false">
+        <input type="text" id="passwordInput" placeholder="Password" spellcheck="false">
         <button class="insert-buttons" onclick="checkInputs()">Done</button>
         <button class="insert-buttons" onclick="abort()">Cancel</button>
     </div>
     <h3 id="inputAlert">Fill all the fields above</h3>
     <div id="passwords-container">
-        <div class="password">
-            <h1>asdsad</h1>
-            <h2>asdasd</h2>
-            <h3>senha</h3>
-        </div>
+
     </div>
     <div class="buttons-container">
         <button onclick="newPassword()"><i class="fa-solid fa-plus fa-2x" style="color: #98da4b;"></i></button>
