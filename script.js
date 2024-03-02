@@ -52,10 +52,14 @@ function createPassword() {
     let IDname = document.createElement("h1");
     let emailUsername = document.createElement("h2");
     let password = document.createElement("h3");
+
     let copyPasswordButton = document.createElement("button");
     let copyEmailButton = document.createElement("button");
     let deletePasswordButton = document.createElement("button");
 
+    let copyPasswordIcon = document.createElement("i");
+    let copyEmailIcon = document.createElement("i");
+    let deletePasswordIcon = document.createElement("i");
 
     document.getElementById("passwords-container").appendChild(newPassword);//adds a div to its container
     newPassword.appendChild(IDname);
@@ -67,10 +71,22 @@ function createPassword() {
     newPasswordButtons.appendChild(copyEmailButton);
     newPasswordButtons.appendChild(deletePasswordButton);
 
+    copyPasswordButton.appendChild(copyPasswordIcon);
+    copyEmailButton.appendChild(copyEmailIcon);
+    deletePasswordButton.appendChild(deletePasswordIcon);
+
     newPassword.className = "password";
     copyPasswordButton.className = "password-buttons";
     copyEmailButton.className = "password-buttons";
     deletePasswordButton.className = "password-buttons";
+
+    copyPasswordIcon.className = "fa-solid fa-copy fa-xl";
+    copyEmailIcon.className = "fa-solid fa-envelope-open-text fa-xl";
+    deletePasswordIcon.className = "fa-solid fa-trash-can fa-xl";
+
+    copyPasswordIcon.style.color = "#98da4b";
+    copyEmailIcon.style.color = "#98da4b";
+    deletePasswordIcon.style.color = "#98da4b";
 
     IDname.textContent = document.getElementById("nameInput").value;
     emailUsername.textContent = document.getElementById("emailInput").value;
@@ -83,5 +99,18 @@ function createPassword() {
 
     insertedValues.forEach(function (input) {
         input.value = "";
+    });
+
+    document.querySelectorAll("button").forEach(function (button) {
+        button.addEventListener("mousedown", function () {
+            this.style.backgroundColor = "#3d3d3d";
+        });
+
+        button.addEventListener("mouseup", function () {
+            this.style.backgroundColor = "";
+        });
+        button.addEventListener("mouseleave", function () {
+            this.style.backgroundColor = "";
+        });
     });
 }
