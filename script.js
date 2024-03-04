@@ -113,4 +113,9 @@ function createPassword() {
             this.style.backgroundColor = "";
         });
     });
+
+    //delete newPassword
+    deletePasswordButton.addEventListener("click", function () {
+        newPassword.remove();
+    });
 }
