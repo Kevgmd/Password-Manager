@@ -15,6 +15,7 @@ document.querySelectorAll("button").forEach(function (button) {
 function newPassword() {
     let element = document.getElementsByClassName("insert-container")[0];
     element.style.display = "flex";
+    document.querySelector('#delete-confirmation').style.display = 'none';
 }
 function abort() {
     let element = document.getElementsByClassName("insert-container")[0];
@@ -113,9 +114,16 @@ function createPassword() {
             this.style.backgroundColor = "";
         });
     });
-
     //delete newPassword
     deletePasswordButton.addEventListener("click", function () {
+        document.querySelector('#delete-confirmation').style.display = 'flex';
+    });
+
+    document.getElementById('yes-button').addEventListener('click', function () {
         newPassword.remove();
+        document.querySelector('#delete-confirmation').style.display = 'none';
+    });
+    document.getElementById('no-button').addEventListener('click', function () {
+        document.querySelector('#delete-confirmation').style.display = 'none';
     });
 }
