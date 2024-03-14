@@ -101,7 +101,7 @@ function createPassword() {
     insertedValues.forEach(function (input) {
         input.value = "";
     });
-
+    //newly created button focus animations
     document.querySelectorAll("button").forEach(function (button) {
         button.addEventListener("mousedown", function () {
             this.style.backgroundColor = "#3d3d3d";
@@ -114,7 +114,7 @@ function createPassword() {
             this.style.backgroundColor = "";
         });
     });
-    //delete newPassword
+    //delete newPassword confirmation pop up
     deletePasswordButton.addEventListener("click", function () {
         document.querySelector('#delete-confirmation').style.display = 'flex';
     });
@@ -123,7 +123,36 @@ function createPassword() {
         newPassword.remove();
         document.querySelector('#delete-confirmation').style.display = 'none';
     });
+
     document.getElementById('no-button').addEventListener('click', function () {
         document.querySelector('#delete-confirmation').style.display = 'none';
+    });
+    //copy to clipboard buttons
+    copyPasswordButton.addEventListener("click", function () {
+
+        let passwordToCopy = password.textContent;
+
+        let tempTextArea = document.createElement('textarea');
+        tempTextArea.value = passwordToCopy;
+        document.getElementById('passwords-container').appendChild(tempTextArea);
+
+        tempTextArea.select();
+        document.execCommand('copy');
+
+        document.getElementById('passwords-container').removeChild(tempTextArea);
+    });
+
+    copyEmailButton.addEventListener("click", function () {
+
+        let emailToCopy = emailUsername.textContent;
+
+        let tempTextArea = document.createElement('textarea');
+        tempTextArea.value = emailToCopy;
+        document.getElementById('passwords-container').appendChild(tempTextArea);
+
+        tempTextArea.select();
+        document.execCommand('copy');
+
+        document.getElementById('passwords-container').removeChild(tempTextArea);
     });
 }
