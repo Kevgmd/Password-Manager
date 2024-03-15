@@ -149,29 +149,6 @@ body {
     position: fixed;
 }
 
-#delete-confirmation {
-    background-color: #2c5200;
-    padding: 8px;
-    border-radius: 50px;
-    z-index: 2;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    position: fixed;
-    align-items: center;
-}
-
-#delete-confirmation button {
-    background-color: rgb(25, 24, 31);
-    border: 2px solid #98da4b;
-    height: 2rem;
-    width: 5rem;
-    border-radius: 5px;
-    margin: 8px;
-}
-
-
 ::placeholder {
     color: #6a9933;
 }

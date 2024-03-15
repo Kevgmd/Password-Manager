@@ -116,16 +116,11 @@ function createPassword() {
     });
     //delete newPassword confirmation pop up
     deletePasswordButton.addEventListener("click", function () {
-        document.querySelector('#delete-confirmation').style.display = 'flex';
-    });
+        deletePasswordIcon.style.color = '#da4b4b';
 
-    document.getElementById('yes-button').addEventListener('click', function () {
-        newPassword.remove();
-        document.querySelector('#delete-confirmation').style.display = 'none';
-    });
-
-    document.getElementById('no-button').addEventListener('click', function () {
-        document.querySelector('#delete-confirmation').style.display = 'none';
+        deletePasswordButton.addEventListener('click', function () {
+            newPassword.remove();
+        });
     });
     //copy to clipboard buttons
     copyPasswordButton.addEventListener("click", function () {
