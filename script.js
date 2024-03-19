@@ -85,6 +85,7 @@ function createPassword() {
     copyEmailIcon.className = "fa-solid fa-envelope-open-text fa-xl";
     deletePasswordIcon.className = "fa-solid fa-trash-can fa-xl";
 
+
     copyPasswordIcon.style.color = "#98da4b";
     copyEmailIcon.style.color = "#98da4b";
     deletePasswordIcon.style.color = "#98da4b";
@@ -114,13 +115,9 @@ function createPassword() {
             this.style.backgroundColor = "";
         });
     });
-    //delete newPassword confirmation pop up
-    deletePasswordButton.addEventListener("click", function () {
-        deletePasswordIcon.style.color = '#da4b4b';
-
-        deletePasswordButton.addEventListener('click', function () {
-            newPassword.remove();
-        });
+    //delete password confirmation
+    deletePasswordButton.addEventListener('click', function () {
+        newPassword.remove();
     });
     //copy to clipboard buttons
     copyPasswordButton.addEventListener("click", function () {
