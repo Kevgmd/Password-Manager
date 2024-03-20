@@ -62,6 +62,8 @@ function createPassword() {
     let copyEmailIcon = document.createElement("i");
     let deletePasswordIcon = document.createElement("i");
 
+    let realPassword = document.getElementById("passwordInput").value;
+
     document.getElementById("passwords-container").appendChild(newPassword);//adds a div to its container
     newPassword.appendChild(IDname);
     newPassword.appendChild(emailUsername);
@@ -85,14 +87,13 @@ function createPassword() {
     copyEmailIcon.className = "fa-solid fa-envelope-open-text fa-xl";
     deletePasswordIcon.className = "fa-solid fa-trash-can fa-xl";
 
-
     copyPasswordIcon.style.color = "#98da4b";
     copyEmailIcon.style.color = "#98da4b";
     deletePasswordIcon.style.color = "#98da4b";
 
     IDname.textContent = document.getElementById("nameInput").value;
     emailUsername.textContent = document.getElementById("emailInput").value;
-    password.textContent = document.getElementById("passwordInput").value;
+    password.textContent = "*".repeat(document.getElementById("passwordInput").value.length);
 
     let element = document.getElementsByClassName("insert-container")[0];
 
@@ -102,7 +103,7 @@ function createPassword() {
     insertedValues.forEach(function (input) {
         input.value = "";
     });
-    //newly created button focus animations
+    //created passwords button focus animations
     document.querySelectorAll("button").forEach(function (button) {
         button.addEventListener("mousedown", function () {
             this.style.backgroundColor = "#3d3d3d";
@@ -122,7 +123,7 @@ function createPassword() {
     //copy to clipboard buttons
     copyPasswordButton.addEventListener("click", function () {
 
-        let passwordToCopy = password.textContent;
+        let passwordToCopy = realPassword;
 
         let tempTextArea = document.createElement('textarea');
         tempTextArea.value = passwordToCopy;
@@ -146,5 +147,13 @@ function createPassword() {
         document.execCommand('copy');
 
         document.getElementById('passwords-container').removeChild(tempTextArea);
+    });
+    //display and hide password
+    password.addEventListener('mouseenter', function () {
+        password.textContent = realPassword;
+    });
+
+    password.addEventListener('mouseleave', function () {
+        password.textContent = "*".repeat(realPassword.length);
     });
 }
