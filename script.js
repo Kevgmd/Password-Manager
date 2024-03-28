@@ -123,6 +123,16 @@ function createPassword() {
     //copy to clipboard buttons
     copyPasswordButton.addEventListener("click", function () {
 
+        document.querySelector('.clipboardAlert').classList.remove('hidden');
+        document.querySelector('.clipboardAlert').classList.add('visible');
+
+        setTimeout(function () {
+            var element = document.querySelector('.clipboardAlert');
+            element.classList.remove('visible');
+            element.classList.add('hidden');
+        }, 500);
+
+
         let passwordToCopy = realPassword;
 
         let tempTextArea = document.createElement('textarea');
@@ -136,6 +146,17 @@ function createPassword() {
     });
 
     copyEmailButton.addEventListener("click", function () {
+
+        // Remove 'hidden' class and add 'visible' class to show the element
+        document.querySelector('.clipboardAlert').classList.remove('hidden');
+        document.querySelector('.clipboardAlert').classList.add('visible');
+
+        // After some time, hide the element again
+        setTimeout(function () {
+            var element = document.querySelector('.clipboardAlert');
+            element.classList.remove('visible');
+            element.classList.add('hidden');
+        }, 500);
 
         let emailToCopy = emailUsername.textContent;
 

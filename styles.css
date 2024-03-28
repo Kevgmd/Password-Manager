@@ -114,6 +114,27 @@ body {
 }
 
 
+.clipboardAlert {
+    background-color: #2c5200;
+    padding: 8px;
+    border-radius: 50px;
+    z-index: 2;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    position: fixed;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+}
+
 #logo {
     display: flex;
     align-items: center;
@@ -130,11 +151,10 @@ body {
 }
 
 #passwords-container {
-    height: calc(100vh - 222px);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 250px;
+    margin-bottom: 150px;
 }
 
 #inputAlert {
@@ -148,6 +168,8 @@ body {
     display: none;
     position: fixed;
 }
+
+
 
 ::placeholder {
     color: #6a9933;
