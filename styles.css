@@ -135,6 +135,18 @@ body {
     opacity: 1;
 }
 
+.inputAlert {
+    background-color: #2c5200;
+    padding: 8px;
+    border-radius: 50px;
+    z-index: 2;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    position: fixed;
+}
+
 #logo {
     display: flex;
     align-items: center;
@@ -156,20 +168,6 @@ body {
     flex-wrap: wrap;
     margin-bottom: 150px;
 }
-
-#inputAlert {
-    background-color: #2c5200;
-    padding: 8px;
-    border-radius: 50px;
-    z-index: 2;
-    top: 77%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    position: fixed;
-}
-
-
 
 ::placeholder {
     color: #6a9933;

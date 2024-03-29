@@ -13,15 +13,16 @@ document.querySelectorAll("button").forEach(function (button) {
 });
 //button functions
 function newPassword() {
-    let element = document.getElementsByClassName("insert-container")[0];
+    let element = document.querySelector(".insert-container");
     element.style.display = "flex";
     document.querySelector('#delete-confirmation').style.display = 'none';
 }
 function abort() {
-    let element = document.getElementsByClassName("insert-container")[0];
+    let element = document.querySelector(".insert-container");
 
     element.style.display = "none";
-    document.getElementById("inputAlert").style.display = "none";
+    document.querySelector(".inputAlert").classList.remove('visible');
+    document.querySelector(".inputAlert").classList.add('hidden');
 
     document.querySelectorAll("input").forEach(function (input) {
         input.value = "";
@@ -42,7 +43,14 @@ function checkInputs() {
     if (inputsFilled) {
         createPassword();
     } else {
-        document.getElementById("inputAlert").style.display = "flex";
+        document.querySelector('.inputAlert').classList.remove('hidden');
+        document.querySelector('.inputAlert').classList.add('visible');
+
+        setTimeout(function () {
+            var element = document.querySelector('.inputAlert');
+            element.classList.remove('visible');
+            element.classList.add('hidden');
+        }, 1500);
     }
 }
 
@@ -95,10 +103,10 @@ function createPassword() {
     emailUsername.textContent = document.getElementById("emailInput").value;
     password.textContent = "*".repeat(document.getElementById("passwordInput").value.length);
 
-    let element = document.getElementsByClassName("insert-container")[0];
+    let element = document.querySelector(".insert-container");
 
     element.style.display = "none";
-    document.getElementById("inputAlert").style.display = "none";
+    document.querySelector(".inputAlert").style.display = "none";
 
     insertedValues.forEach(function (input) {
         input.value = "";
