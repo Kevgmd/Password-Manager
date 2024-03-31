@@ -47,9 +47,9 @@ function checkInputs() {
         document.querySelector('.inputAlert').classList.add('visible');
 
         setTimeout(function () {
-            var element = document.querySelector('.inputAlert');
-            element.classList.remove('visible');
-            element.classList.add('hidden');
+            var alertElement = document.querySelector('.inputAlert');
+            alertElement.classList.remove('visible');
+            alertElement.classList.add('hidden');
         }, 1500);
     }
 }
@@ -103,10 +103,9 @@ function createPassword() {
     emailUsername.textContent = document.getElementById("emailInput").value;
     password.textContent = "*".repeat(document.getElementById("passwordInput").value.length);
 
-    let element = document.querySelector(".insert-container");
+    let insertElement = document.querySelector(".insert-container");
 
-    element.style.display = "none";
-    document.querySelector(".inputAlert").style.display = "none";
+    insertElement.style.display = "none";
 
     insertedValues.forEach(function (input) {
         input.value = "";
@@ -140,7 +139,6 @@ function createPassword() {
             element.classList.add('hidden');
         }, 500);
 
-
         let passwordToCopy = realPassword;
 
         let tempTextArea = document.createElement('textarea');
@@ -155,11 +153,9 @@ function createPassword() {
 
     copyEmailButton.addEventListener("click", function () {
 
-        // Remove 'hidden' class and add 'visible' class to show the element
         document.querySelector('.clipboardAlert').classList.remove('hidden');
         document.querySelector('.clipboardAlert').classList.add('visible');
 
-        // After some time, hide the element again
         setTimeout(function () {
             var element = document.querySelector('.clipboardAlert');
             element.classList.remove('visible');
