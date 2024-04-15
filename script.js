@@ -72,7 +72,7 @@ function createPassword() {
 
     let realPassword = document.getElementById("passwordInput").value;
 
-    document.getElementById("passwords-container").appendChild(newPassword);//adds a div to its container
+    document.getElementById("passwords-container").appendChild(newPassword);
     newPassword.appendChild(IDname);
     newPassword.appendChild(emailUsername);
     newPassword.appendChild(password);
@@ -98,10 +98,6 @@ function createPassword() {
     copyPasswordIcon.style.color = "#98da4b";
     copyEmailIcon.style.color = "#98da4b";
     deletePasswordIcon.style.color = "#98da4b";
-
-    IDname.textContent = document.getElementById("nameInput").value;
-    emailUsername.textContent = document.getElementById("emailInput").value;
-    password.textContent = "*".repeat(document.getElementById("passwordInput").value.length);
 
     let insertElement = document.querySelector(".insert-container");
 
@@ -182,3 +178,49 @@ function createPassword() {
         password.textContent = "*".repeat(realPassword.length);
     });
 }
+//Node.js client side
+async function saveText() {
+    const getName = document.getElementById("nameInput").value;
+    const getEmail = document.getElementById("emailInput").value;
+    const getPassword = document.getElementById("passwordInput").value;
+
+    const response = await fetch('/Password-Manager/get-data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ password })
+    });
+
+    if (response.ok) {
+        console.log('password saved successfully');
+        loadText();
+    } else {
+        console.error('Error saving password:', response.statusText);
+    }
+}
+
+async function loadPassword() {
+    const response = await fetch('/Password-Manager/get-data');
+    const data = await response.json();
+    const newPasswordContainer = document.getElementById("passwords-container");
+
+    data.forEach(entry => {
+        let IDname = document.createElement("h1");
+        let emailUsername = document.createElement("h2");
+        let password = document.createElement("h3");
+
+        IDname.value = entry.name;
+        emailUsername.value = entry.email;
+        password.value = entry.password;
+
+        newPasswordContainer.appendChild(newPassword);
+
+        newPassword.appendChild(IDname);
+        newPassword.appendChild(emailUsername);
+        newPassword.appendChild(password);
+
+    });
+}
+
+loadPassword();
