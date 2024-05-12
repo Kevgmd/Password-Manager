@@ -54,7 +54,7 @@ function checkInputs() {
     }
 }
 
-function createPassword() {
+function createPasswordElement(user) {
     let newPassword = document.createElement("div");
     let newPasswordButtons = document.createElement("div");
 
@@ -70,9 +70,6 @@ function createPassword() {
     let copyEmailIcon = document.createElement("i");
     let deletePasswordIcon = document.createElement("i");
 
-    let realPassword = document.getElementById("passwordInput").value;
-
-    document.getElementById("passwords-container").appendChild(newPassword);//adds a div to its container
     newPassword.appendChild(IDname);
     newPassword.appendChild(emailUsername);
     newPassword.appendChild(password);
@@ -99,9 +96,9 @@ function createPassword() {
     copyEmailIcon.style.color = "#98da4b";
     deletePasswordIcon.style.color = "#98da4b";
 
-    IDname.textContent = document.getElementById("nameInput").value;
-    emailUsername.textContent = document.getElementById("emailInput").value;
-    password.textContent = "*".repeat(document.getElementById("passwordInput").value.length);
+    IDname.textContent = user.name;
+    emailUsername.textContent = user.email;
+    password.textContent = "*".repeat(user.password.length);
 
     let insertElement = document.querySelector(".insert-container");
 
@@ -110,22 +107,23 @@ function createPassword() {
     insertedValues.forEach(function (input) {
         input.value = "";
     });
-    //created passwords button focus animations
-    document.querySelectorAll("button").forEach(function (button) {
-        button.addEventListener("mousedown", function () {
-            this.style.backgroundColor = "#3d3d3d";
+    //delete password button
+    deletePasswordButton.addEventListener("click", function () {
+        let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
+
+        let index = storedPasswords.findIndex(function (user) {
+            return user.name === IDname.textContent && user.email === emailUsername.textContent;
         });
 
-        button.addEventListener("mouseup", function () {
-            this.style.backgroundColor = "";
-        });
-        button.addEventListener("mouseleave", function () {
-            this.style.backgroundColor = "";
-        });
-    });
-    //delete password confirmation
-    deletePasswordButton.addEventListener('click', function () {
-        newPassword.remove();
+        if (index !== -1) {
+            storedPasswords.splice(index, 1);
+
+            localStorage.setItem("storedPasswords", JSON.stringify(storedPasswords));
+
+            newPassword.remove();
+        } else {
+            console.log("User not found");
+        }
     });
     //copy to clipboard buttons
     copyPasswordButton.addEventListener("click", function () {
@@ -139,7 +137,7 @@ function createPassword() {
             element.classList.add('hidden');
         }, 500);
 
-        let passwordToCopy = realPassword;
+        let passwordToCopy = IDname.textContent;
 
         let tempTextArea = document.createElement('textarea');
         tempTextArea.value = passwordToCopy;
@@ -175,10 +173,91 @@ function createPassword() {
     });
     //display and hide password
     password.addEventListener('mouseenter', function () {
-        password.textContent = realPassword;
+        password.textContent = user.password;
     });
 
     password.addEventListener('mouseleave', function () {
-        password.textContent = "*".repeat(realPassword.length);
+        password.textContent = "*".repeat(user.password.length);
     });
+
+    return newPassword;
+}
+
+function createPassword() {
+    let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
+
+    let newPasswordObj = {
+        name: document.getElementById("nameInput").value,
+        email: document.getElementById("emailInput").value,
+        password: document.getElementById("passwordInput").value
+    };
+    storedPasswords.push(newPasswordObj);
+
+    localStorage.setItem("storedPasswords", JSON.stringify(storedPasswords));
+
+    let lastPassword = storedPasswords[storedPasswords.length - 1];
+
+    let newPassword = createPasswordElement(lastPassword);
+    document.getElementById("passwords-container").appendChild(newPassword);
+    //passwords button focus animations
+    document.querySelectorAll("button").forEach(function (button) {
+        button.addEventListener("mousedown", function () {
+            button.style.backgroundColor = "#3d3d3d";
+        });
+
+        button.addEventListener("mouseup", function () {
+            button.style.backgroundColor = "";
+        });
+        button.addEventListener("mouseleave", function () {
+            button.style.backgroundColor = "";
+        });
+    });
+}
+
+function displayPasswordsOnLoad() {
+    let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
+
+    if (storedPasswords) {
+        storedPasswords.forEach(function (user) {
+            let newPassword = createPasswordElement(user);
+            document.getElementById("passwords-container").appendChild(newPassword);
+        });
+    }
+    //passwords button focus animations
+    document.querySelectorAll("button").forEach(function (button) {
+        button.addEventListener("mousedown", function () {
+            button.style.backgroundColor = "#3d3d3d";
+        });
+
+        button.addEventListener("mouseup", function () {
+            button.style.backgroundColor = "";
+        });
+        button.addEventListener("mouseleave", function () {
+            button.style.backgroundColor = "";
+        });
+    });
+}
+
+window.addEventListener('load', displayPasswordsOnLoad);
+//Download passwords related code
+function downloadPasswords() {
+    let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
+
+    let fileContent = "";
+
+    storedPasswords.forEach(function (user) {
+        fileContent += `${user.name}\n${user.email}\n${user.password}\n\n`;
+    });
+
+
+    let blob = new Blob([fileContent], { type: 'text/plain' });
+
+    let link = document.createElement('a');
+    link.download = 'passwords.txt';
+    link.href = window.URL.createObjectURL(blob);
+
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
 }

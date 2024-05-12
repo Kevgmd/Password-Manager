@@ -21,13 +21,14 @@
         <button class="insert-buttons" onclick="checkInputs()">Done</button>
         <button class="insert-buttons" onclick="abort()">Cancel</button>
     </div>
-    <h3 class="inputAlert hidden">Fill all the fields above</h3>
+    <h3 class="inputAlert hidden">Fill up all the fields above!</h3>
     <h3 class="clipboardAlert hidden">Copied to clipboard!</h3>
     </div>
     <div id="passwords-container"></div>
     <div class="buttons-container">
         <button onclick="newPassword()"><i class="fa-solid fa-plus fa-2x" style="color: #98da4b;"></i></button>
-        <button><i class="fa-solid fa-file-arrow-down fa-2x" style="color: #98da4b;"></i></button>
+        <button onclick="downloadPasswords()"><i class="fa-solid fa-file-arrow-down fa-2x"
+                style="color: #98da4b;"></i></button>
     </div>
 </body>
 <script src="./script.js"></script>
