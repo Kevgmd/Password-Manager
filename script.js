@@ -13,14 +13,14 @@ document.querySelectorAll("button").forEach(function (button) {
 });
 //button functions
 function newPassword() {
-    let element = document.querySelector(".insert-container");
-    element.style.display = "flex";
+    let clipboardAlert = document.querySelector(".insert-container");
+    clipboardAlert.style.display = "flex";
     document.querySelector('#delete-confirmation').style.display = 'none';
 }
 function abort() {
-    let element = document.querySelector(".insert-container");
+    let insertContainer = document.querySelector(".insert-container");
 
-    element.style.display = "none";
+    insertContainer.style.display = "none";
     document.querySelector(".inputAlert").classList.remove('visible');
     document.querySelector(".inputAlert").classList.add('hidden');
 
@@ -43,14 +43,20 @@ function checkInputs() {
     if (inputsFilled) {
         createPassword();
     } else {
+        let inputAlert = document.querySelector('.inputAlert');
+
         document.querySelector('.inputAlert').classList.remove('hidden');
         document.querySelector('.inputAlert').classList.add('visible');
+        inputAlert.style.display = "flex";
 
         setTimeout(function () {
-            var alertElement = document.querySelector('.inputAlert');
-            alertElement.classList.remove('visible');
-            alertElement.classList.add('hidden');
-        }, 1500);
+            inputAlert.classList.remove('visible');
+            inputAlert.classList.add('hidden');
+            setTimeout(function () {
+                inputAlert.style.display = "none";
+            }, 500);
+
+        }, 1000);
     }
 }
 
@@ -121,23 +127,27 @@ function createPasswordElement(user) {
             localStorage.setItem("storedPasswords", JSON.stringify(storedPasswords));
 
             newPassword.remove();
-        } else {
-            console.log("User not found");
         }
     });
     //copy to clipboard buttons
     copyPasswordButton.addEventListener("click", function () {
+        let clipboardAlert = document.querySelector('.clipboardAlert');
 
         document.querySelector('.clipboardAlert').classList.remove('hidden');
         document.querySelector('.clipboardAlert').classList.add('visible');
+        clipboardAlert.style.display = "flex";
 
         setTimeout(function () {
-            var element = document.querySelector('.clipboardAlert');
-            element.classList.remove('visible');
-            element.classList.add('hidden');
+            clipboardAlert.classList.remove('visible');
+            clipboardAlert.classList.add('hidden');
+
+            setTimeout(function () {
+                clipboardAlert.style.display = "none";
+            }, 500);
+
         }, 500);
 
-        let passwordToCopy = IDname.textContent;
+        let passwordToCopy = user.password;
 
         let tempTextArea = document.createElement('textarea');
         tempTextArea.value = passwordToCopy;
@@ -151,16 +161,23 @@ function createPasswordElement(user) {
 
     copyEmailButton.addEventListener("click", function () {
 
+        let clipboardAlert = document.querySelector('.clipboardAlert');
+
         document.querySelector('.clipboardAlert').classList.remove('hidden');
         document.querySelector('.clipboardAlert').classList.add('visible');
+        clipboardAlert.style.display = "flex";
 
         setTimeout(function () {
-            var element = document.querySelector('.clipboardAlert');
-            element.classList.remove('visible');
-            element.classList.add('hidden');
+            clipboardAlert.classList.remove('visible');
+            clipboardAlert.classList.add('hidden');
+
+            setTimeout(function () {
+                clipboardAlert.style.display = "none";
+            }, 500);
+
         }, 500);
 
-        let emailToCopy = emailUsername.textContent;
+        let emailToCopy = user.email;
 
         let tempTextArea = document.createElement('textarea');
         tempTextArea.value = emailToCopy;
@@ -253,7 +270,7 @@ function downloadPasswords() {
     let blob = new Blob([fileContent], { type: 'text/plain' });
 
     let link = document.createElement('a');
-    link.download = 'passwords.txt';
+    link.download = 'MyPasswords.txt';
     link.href = window.URL.createObjectURL(blob);
 
     document.body.appendChild(link);
