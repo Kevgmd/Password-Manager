@@ -19,3 +19,7 @@
 ![copy email button](https://github.com/Kevgmd/Password-Manager/assets/140569159/840132a5-b9a4-4bb6-85ab-154ee69305ca)
 ![hover](https://github.com/Kevgmd/Password-Manager/assets/140569159/d6b6908e-13b7-4c32-8123-0d7069254cff)
 </div>
+
+# Issues and Pull Requests
+If you identify any bug you can open a new issue so i can fix it.<br>
+And about the pull requests, i probably won't accept any (if someone ever make one), but if you have any good ideas feel free to make one.
