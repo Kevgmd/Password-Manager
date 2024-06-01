@@ -22,4 +22,4 @@
 
 # Issues and Pull Requests
 If you identify any bug you can open a new issue so i can fix it.<br>
-And about the pull requests, i probably won't accept any (if someone ever make one), but if you have any good ideas feel free to make one.
+And about the pull requests, i probably won't accept any (if someone ever make one), <br> but if you have any good ideas, feel free to make one, if it's good enough i can reconsider.
