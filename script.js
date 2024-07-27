@@ -28,7 +28,7 @@ function abort() {
         input.value = "";
     });
 }
-//create new password (new div)
+//create new password (create new div)
 let insertedValues = document.querySelectorAll("input");
 
 function checkInputs() {
@@ -64,16 +64,16 @@ function createPasswordElement(user) {
     let newPassword = document.createElement("div");
     let newPasswordButtons = document.createElement("div");
 
-    let IDname = document.createElement("h1");
     let emailUsername = document.createElement("h2");
+    let IDname = document.createElement("h1");
     let password = document.createElement("h3");
 
-    let copyPasswordButton = document.createElement("button");
     let copyEmailButton = document.createElement("button");
+    let copyPasswordButton = document.createElement("button");
     let deletePasswordButton = document.createElement("button");
 
-    let copyPasswordIcon = document.createElement("i");
     let copyEmailIcon = document.createElement("i");
+    let copyPasswordIcon = document.createElement("i");
     let deletePasswordIcon = document.createElement("i");
 
     newPassword.appendChild(IDname);
@@ -81,16 +81,16 @@ function createPasswordElement(user) {
     newPassword.appendChild(password);
 
     newPassword.appendChild(newPasswordButtons);
-    newPasswordButtons.appendChild(copyPasswordButton);
     newPasswordButtons.appendChild(copyEmailButton);
+    newPasswordButtons.appendChild(copyPasswordButton);
     newPasswordButtons.appendChild(deletePasswordButton);
 
-    copyPasswordButton.appendChild(copyPasswordIcon);
     copyEmailButton.appendChild(copyEmailIcon);
+    copyPasswordButton.appendChild(copyPasswordIcon);
     deletePasswordButton.appendChild(deletePasswordIcon);
 
-    newPassword.className = "password";
     copyPasswordButton.className = "password-buttons";
+    newPassword.className = "password";
     copyEmailButton.className = "password-buttons";
     deletePasswordButton.className = "password-buttons";
 
@@ -102,8 +102,8 @@ function createPasswordElement(user) {
     copyEmailIcon.style.color = "#98da4b";
     deletePasswordIcon.style.color = "#98da4b";
 
-    IDname.textContent = user.name;
     emailUsername.textContent = user.email;
+    IDname.textContent = user.name;
     password.textContent = "*".repeat(user.password.length);
 
     let insertElement = document.querySelector(".insert-container");

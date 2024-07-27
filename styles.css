@@ -127,10 +127,12 @@ body {
 .hidden {
     opacity: 0;
     transition: 0.5s;
+    display: none;
 }
 
 .visible {
     opacity: 1;
+    display: flex;
 }
 
 .inputAlert {
