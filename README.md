@@ -20,6 +20,5 @@
 ![hover](https://github.com/Kevgmd/Password-Manager/assets/140569159/d6b6908e-13b7-4c32-8123-0d7069254cff)
 </div>
 
-# Issues and Pull Requests
-If you identify any bug you can open a new issue so i can fix it.<br>
-And about the pull requests, i probably won't accept any (if someone ever make one), <br> but if you have any good ideas, feel free to make one, if it's good enough i can reconsider.
+# DISCLAIMER ⚠️
+<b>DO NOT USE THIS REPO WEBSITE TO STORE YOUR ACTUAL PASSWORDS, THERE ARE MANY OTHER GREAT PASSWORD MANAGEMENT SERVICES AROUND THE WEBWITH WAY MORE SECURITY THAN THIS ONE, THIS ONE IS JUST FOR "TESTING" PURPOSES.</b>
