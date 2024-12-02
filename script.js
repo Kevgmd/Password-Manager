@@ -189,12 +189,11 @@ function createPasswordElement(user) {
         document.getElementById('passwords-container').removeChild(tempTextArea);
     });
     //display and hide password
-    password.addEventListener('mouseenter', function () {
-        password.textContent = user.password;
-    });
+    let passwordIsVisible = false;
 
-    password.addEventListener('mouseleave', function () {
-        password.textContent = "*".repeat(user.password.length);
+    password.addEventListener('click', function () {
+        password.textContent = passwordIsVisible ? "*".repeat(user.password.length) : user.password; //Password equals the passwordIsVisible Variable, and if the password is visible, the password will toggle and turn into asterisks on click, and if its not visible (with asterisks), it will be visible when clicked.
+        passwordIsVisible = !passwordIsVisible;
     });
 
     return newPassword;
