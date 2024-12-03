@@ -3,6 +3,7 @@
     outline: 0;
     color: #98da4b;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
 }
 
 body {
@@ -57,6 +58,7 @@ body {
 
 .password h3 {
     color: #6a9933;
+    cursor: pointer;
 }
 
 .password-buttons {
@@ -100,7 +102,6 @@ body {
 .insert-container h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
-    user-select: none;
 }
 
 .insert-buttons {
@@ -153,7 +154,6 @@ body {
     justify-content: center;
     padding: 20px;
     text-transform: uppercase;
-    user-select: none;
 }
 
 #line {
