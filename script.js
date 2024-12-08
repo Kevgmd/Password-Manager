@@ -190,10 +190,13 @@ function createPasswordElement(user) {
     });
     //display and hide password
     let passwordIsVisible = false;
+    let passwordLength = user.password.length
 
     password.addEventListener('click', function () {
-        password.textContent = passwordIsVisible ? "*".repeat(user.password.length) : user.password; //Password equals the passwordIsVisible Variable, and if the password is visible, the password will toggle and turn into asterisks on click, and if its not visible (with asterisks), it will be visible when clicked.
+        password.textContent = passwordIsVisible ? "*".repeat(passwordLength) : user.password; //Password equals the passwordIsVisible Variable, and if the password is visible, the password will toggle and turn into asterisks on click, and if its not visible (with asterisks), it will be visible when clicked.
+        password.style.letterSpacing = passwordIsVisible ? '0px' : '0.8px'; // (Bugfix) When password is shown, the letter spacing is turned to 0.8px, to avoid the entire pasword div of changing size.
         passwordIsVisible = !passwordIsVisible;
+
     });
 
     return newPassword;
