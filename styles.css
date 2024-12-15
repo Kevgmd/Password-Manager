@@ -31,6 +31,7 @@ body {
     width: 60px;
     margin: 10px;
     box-shadow: 3px 3px #000;
+    cursor: pointer;
 }
 
 .password {
@@ -69,6 +70,7 @@ body {
     width: 45px;
     margin: 30px 10px 0 10px;
     box-shadow: 2px 2px #000;
+    cursor: pointer;
 }
 
 .insert-container {
@@ -111,6 +113,7 @@ body {
     width: 5rem;
     border-radius: 5px;
     margin: 8px;
+    cursor: pointer;
 }
 
 .clipboardAlert {
