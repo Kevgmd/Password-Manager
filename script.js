@@ -29,7 +29,7 @@ function abort() {
     });
 }
 //create new password (create new div)
-let insertedValues = document.querySelectorAll("input");
+let insertedValues = document.querySelectorAll(".required");
 
 function checkInputs() {
     let inputsFilled = true;
@@ -61,6 +61,10 @@ function checkInputs() {
 }
 
 function createPasswordElement(user) {
+    document.querySelectorAll("input").forEach(function (input) {
+        input.value = "";
+    });
+
     let newPassword = document.createElement("div");
     let newPasswordButtons = document.createElement("div");
 
@@ -109,10 +113,6 @@ function createPasswordElement(user) {
     let insertElement = document.querySelector(".insert-container");
 
     insertElement.style.display = "none";
-
-    insertedValues.forEach(function (input) {
-        input.value = "";
-    });
     //delete password button
     deletePasswordButton.addEventListener("click", function () {
         let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
@@ -193,8 +193,8 @@ function createPasswordElement(user) {
     let passwordLength = user.password.length
 
     password.addEventListener('click', function () {
-        password.textContent = passwordIsVisible ? "*".repeat(passwordLength) : user.password; //Password equals the passwordIsVisible Variable, and if the password is visible, the password will toggle and turn into asterisks on click, and if its not visible (with asterisks), it will be visible when clicked.
-        password.style.letterSpacing = passwordIsVisible ? '0px' : '0.8px'; // (Bugfix) When password is shown, the letter spacing is turned to 0.8px, to avoid the entire pasword div of changing size.
+        password.textContent = passwordIsVisible ? "*".repeat(passwordLength) : user.password; //Password equals the passwordIsVisible Variable, and if the password is visible, the password will toggle and turn into asterisks on click, and if its not visible (its with asterisks), it will be visible when clicked.
+        password.style.letterSpacing = passwordIsVisible ? '0px' : '0.8px'; // (Bugfix) When password is shown, the letter spacing is turned to 0.8px, to avoid the entire div of changing size.
         passwordIsVisible = !passwordIsVisible;
 
     });
@@ -258,7 +258,7 @@ function displayPasswordsOnLoad() {
 }
 
 window.addEventListener('load', displayPasswordsOnLoad);
-//Download passwords related code
+//Download passwords
 function downloadPasswords() {
     let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
 

@@ -15,13 +15,14 @@
     <div id="line"></div>
     <div class="insert-container">
         <h2>Insert new password</h2>
-        <input type="text" id="nameInput" placeholder="Password Name" maxlength="25" spellcheck="false">
-        <input type="text" id="emailInput" placeholder="E-Mail/Username" maxlength="40" spellcheck="false">
-        <input type="text" id="passwordInput" placeholder="Password" maxlength="40" spellcheck="false">
+        <input type="text" class="required" id="nameInput" placeholder="Password Name" maxlength="25"
+            spellcheck="false">
+        <input type="text" id="emailInput" placeholder="Username (Optional)" maxlength="40" spellcheck="false">
+        <input type="text" class="required" id="passwordInput" placeholder="Password" maxlength="40" spellcheck="false">
         <button class="insert-buttons" onclick="checkInputs()">Done</button>
         <button class="insert-buttons" onclick="abort()">Cancel</button>
     </div>
-    <h3 class="inputAlert hidden">Fill up all the fields above!</h3>
+    <h3 class="inputAlert hidden">Complete all the required fields above!</h3>
     <h3 class="clipboardAlert hidden">Copied to clipboard!</h3>
     </div>
     <div id="passwords-container"></div>
