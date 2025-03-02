@@ -19,10 +19,12 @@
             spellcheck="false">
         <input type="text" id="emailInput" placeholder="Username (Optional)" maxlength="40" spellcheck="false">
         <input type="text" class="required" id="passwordInput" placeholder="Password" maxlength="40" spellcheck="false">
-        <button class="insert-buttons" onclick="checkInputs()">Done</button>
-        <button class="insert-buttons" onclick="abort()">Cancel</button>
+        <div id="insertButtons-container">
+            <button class="insert-buttons" onclick="checkInputs()">Done</button>
+            <button class="insert-buttons" onclick="abort()">Cancel</button>
+        </div>
     </div>
-    <h3 class="inputAlert hidden">Complete all the required fields above!</h3>
+    <h3 class="inputAlert hidden">Insert all of the required fields above!</h3>
     <h3 class="clipboardAlert hidden">Copied to clipboard!</h3>
     </div>
     <div id="passwords-container"></div>

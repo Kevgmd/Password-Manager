@@ -1,5 +1,6 @@
 :root {
     --main-color: #98da4b;
+    --background-color: #19181f;
 }
 
 * {
@@ -11,7 +12,7 @@
 }
 
 body {
-    background-color: #19181f;
+    background-color: var(--background-color);
     overflow-x: hidden;
 }
 
@@ -23,7 +24,7 @@ body {
     bottom: 0;
     height: 15vh;
     width: 100vw;
-    background-color: #19181f;
+    background-color: var(--background-color);
     box-shadow: 3px 3px #000;
 }
 
@@ -86,9 +87,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(39, 37, 51);
+    background-color: #272533;
     border-radius: 10px;
-    padding: 70px 60px 70px;
+    padding: 60px 60px 60px;
     box-shadow: 5px 5px #000;
     border: 2px solid #000;
     z-index: 1;
@@ -99,7 +100,7 @@ body {
     width: 15rem;
     margin: 5px;
     padding-left: 10px;
-    background-color: rgb(25, 24, 31);
+    background-color: var(--background-color);
     border: 2px solid var(--main-color);
     border-radius: 5px;
     font-size: large;
@@ -111,12 +112,13 @@ body {
 }
 
 .insert-buttons {
-    background-color: rgb(25, 24, 31);
+    display: block;
+    background-color: var(--background-color);
     border: 2px solid var(--main-color);
     height: 2rem;
     width: 5rem;
     border-radius: 5px;
-    margin: 8px;
+    margin: 10px;
     cursor: pointer;
 }
 
@@ -144,6 +146,7 @@ body {
 }
 
 .inputAlert {
+    display: none;
     background-color: #2c5200;
     padding: 8px;
     border-radius: 50px;
@@ -174,6 +177,10 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 100px;
+}
+
+#insertButtons-container {
+    margin-top: 20px;
 }
 
 ::placeholder {
