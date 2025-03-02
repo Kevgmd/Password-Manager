@@ -3,13 +3,11 @@
 - A Password manager that can save all of your passwords locally on your browser.
 
 - Add and delete passwords as much as you want.
-
-- Minimal and intuitive design.
  
-- Dinamic interface
-
 - Copy password or email with just one click!
- 
+
+- Minimal and intuitive design with a dinamic interface.
+
 - You can download all of your passwords on a text file as a backup!
 # Project Images
 <div align="center">
@@ -22,4 +20,4 @@
 </div>
 
 # DISCLAIMER ⚠️
-<b>DO NOT USE THE VERCEL WEBSITE ON THIS REPO TO STORE YOUR ACTUAL DATA, THERE ARE MANY OTHER GREAT PASSWORD MANAGEMENT SERVICES AROUND THE WEB WITH WAY MORE SECURITY THAN THIS ONE, THIS ONE IS FOR "TESTING" AND SHOWCASING ONLY. IF YOU REALLY WANTO TO TRY THIS ONE, DOWNLOAD IT ON YOUR MACHINE FIRST AND THEN USE IT.</b>
+<b>DO NOT USE THE VERCEL WEBSITE ON THIS REPO TO STORE YOUR ACTUAL DATA, THERE ARE MANY OTHER GREAT PASSWORD MANAGEMENT SERVICES AROUND THE WEB WITH WAY MORE SECURITY THAN THIS ONE, THIS ONE IS FOR "TESTING" AND SHOWCASING ONLY. IF YOU REALLY WANT TO TRY THIS ONE, DOWNLOAD IT ON YOUR MACHINE FIRST USING THE GREEN "CODE" BUTTON.</b>
