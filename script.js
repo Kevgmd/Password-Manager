@@ -61,10 +61,6 @@ function checkInputs() {
 }
 
 function createPasswordElement(user) {
-    document.querySelectorAll("input").forEach(function (input) {
-        input.value = "";
-    });
-
     let newPassword = document.createElement("div");
     let newPasswordButtons = document.createElement("div");
 
@@ -72,20 +68,29 @@ function createPasswordElement(user) {
     let IDname = document.createElement("h1");
     let password = document.createElement("h3");
 
-    let copyEmailButton = document.createElement("button");
     let copyPasswordButton = document.createElement("button");
+    let copyEmailButton = document.createElement("button");
     let deletePasswordButton = document.createElement("button");
 
     let copyEmailIcon = document.createElement("i");
     let copyPasswordIcon = document.createElement("i");
     let deletePasswordIcon = document.createElement("i");
 
+    let emailInput = document.querySelector("#emailInput");
+
+    if (emailInput.value.trim()) { //A copyEmailButton will only be added to the copy buttons area if the emailInput have a text value in it.
+        newPasswordButtons.appendChild(copyEmailButton);
+    }
+
+    document.querySelectorAll("input").forEach(function (input) { //When a new password is saved, all the insert inputs will be cleared.
+        input.value = "";
+    });
+
     newPassword.appendChild(IDname);
     newPassword.appendChild(emailUsername);
     newPassword.appendChild(password);
 
     newPassword.appendChild(newPasswordButtons);
-    newPasswordButtons.appendChild(copyEmailButton);
     newPasswordButtons.appendChild(copyPasswordButton);
     newPasswordButtons.appendChild(deletePasswordButton);
 
