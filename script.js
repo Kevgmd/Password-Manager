@@ -13,9 +13,8 @@ document.querySelectorAll("button").forEach(function (button) {
 });
 //button functions
 function newPassword() {
-    let clipboardAlert = document.querySelector(".insert-container");
-    clipboardAlert.style.display = "flex";
-    document.querySelector('#delete-confirmation').style.display = 'none';
+    let insertContainer = document.querySelector(".insert-container");
+    insertContainer.style.display = "flex";
 }
 function abort() {
     let insertContainer = document.querySelector(".insert-container");
@@ -76,9 +75,7 @@ function createPasswordElement(user) {
     let copyPasswordIcon = document.createElement("i");
     let deletePasswordIcon = document.createElement("i");
 
-    let emailInput = document.querySelector("#emailInput");
-
-    if (emailInput.value.trim()) { //A copyEmailButton will only be added to the copy buttons area if the emailInput have a text value in it.
+    if (user.email) { //If user.email is valid, the copyEmailButton will be added on the password too.
         newPasswordButtons.appendChild(copyEmailButton);
     }
 
@@ -199,14 +196,14 @@ function createPasswordElement(user) {
 
     password.addEventListener('click', function () {
         password.textContent = passwordIsVisible ? "*".repeat(passwordLength) : user.password; //Password equals the passwordIsVisible Variable, and if the password is visible, the password will toggle and turn into asterisks on click, and if its not visible (its with asterisks), it will be visible when clicked.
-        password.style.letterSpacing = passwordIsVisible ? '0px' : '0.8px'; // (Bugfix) When password is shown, the letter spacing is turned to 0.8px, to avoid the entire div of changing size.
+        password.style.letterSpacing = passwordIsVisible ? '0px' : '0.8px'; // (Bugfix) When password is shown, the letter spacing is turned to 0.8px, to avoid the entire div of changing size (this issue isn't entirelly solved, but the chances are minimized).
         passwordIsVisible = !passwordIsVisible;
 
     });
 
     return newPassword;
 }
-
+//Save passwords
 function createPassword() {
     let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
 
@@ -237,7 +234,7 @@ function createPassword() {
         });
     });
 }
-
+//display password on load
 function displayPasswordsOnLoad() {
     let storedPasswords = JSON.parse(localStorage.getItem("storedPasswords")) || [];
 
@@ -247,7 +244,7 @@ function displayPasswordsOnLoad() {
             document.getElementById("passwords-container").appendChild(newPassword);
         });
     }
-    //passwords button focus animations
+    //loaded passwords button focus animations
     document.querySelectorAll("button").forEach(function (button) {
         button.addEventListener("mousedown", function () {
             button.style.backgroundColor = "#3d3d3d";
@@ -270,9 +267,8 @@ function downloadPasswords() {
     let fileContent = "";
 
     storedPasswords.forEach(function (user) {
-        fileContent += `${user.name}\n${user.email}\n${user.password}\n\n`;
+        fileContent += `${user.name}\n${user.email ? user.email + '\n' : ''}${user.password}\n\n`;
     });
-
 
     let blob = new Blob([fileContent], { type: 'text/plain' });
 
