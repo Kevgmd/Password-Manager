@@ -19,5 +19,5 @@
 
 </div>
 
-# DISCLAIMER ⚠️
-<b>DO NOT USE THE VERCEL WEBSITE ON THIS REPO TO STORE YOUR ACTUAL DATA, THERE ARE MANY OTHER GREAT PASSWORD MANAGEMENT SERVICES AROUND THE WEB WITH WAY MORE SECURITY THAN THIS ONE, THIS ONE IS FOR "TESTING" AND SHOWCASING ONLY. IF YOU REALLY WANT TO TRY THIS ONE, DOWNLOAD IT ON YOUR MACHINE FIRST USING THE GREEN "CODE" BUTTON.</b>
+> [!CAUTION]
+> <b>Do not use the vercel website on this repo to store your actual data, there are many other great password management services around the web with way more security than this one, this one is for "testing" and showcasing only. If you really want to try this one, download it on your machine first using the green "code" button. </b>
